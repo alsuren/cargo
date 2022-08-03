@@ -104,7 +104,7 @@ impl CompileOptions {
     }
 }
 
-#[derive(PartialEq, Eq, Debug)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub enum Packages {
     Default,
     All,
