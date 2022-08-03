@@ -148,7 +148,7 @@ impl<'a> Graph<'a> {
         self.package_map[&id]
     }
 
-    fn package_id_for_index(&self, index: usize) -> PackageId {
+    pub fn package_id_for_index(&self, index: usize) -> PackageId {
         match self.nodes[index] {
             Node::Package { package_id, .. } => package_id,
             Node::Feature { .. } => panic!("unexpected feature node"),

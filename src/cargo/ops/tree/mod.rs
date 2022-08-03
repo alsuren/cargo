@@ -14,7 +14,7 @@ use std::collections::{HashMap, HashSet};
 use std::str::FromStr;
 
 mod format;
-mod graph;
+pub mod graph;
 
 pub use {graph::EdgeKind, graph::Node};
 
