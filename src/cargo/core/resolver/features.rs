@@ -460,7 +460,10 @@ impl<'a, 'cfg> FeatureResolver<'a, 'cfg> {
             deferred_weak_dependencies: HashMap::new(),
         };
         r.do_resolve(specs, cli_features)?;
-        log::debug!("features={:#?}", r.activated_features);
+        log::debug!(
+            "features={:#?}",
+            r.activated_features.iter().collect::<BTreeMap<_, _>>()
+        );
         if r.opts.compare {
             r.compare();
         }

@@ -15,7 +15,7 @@
 //! (for example, with and without tests), so we actually build a dependency
 //! graph of `Unit`s, which capture these properties.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 
 use log::trace;
 
@@ -134,7 +134,10 @@ pub fn build_unit_dependencies<'a, 'cfg>(
     for list in state.unit_dependencies.values_mut() {
         list.sort();
     }
-    trace!("ALL UNIT DEPENDENCIES {:#?}", state.unit_dependencies);
+    trace!(
+        "ALL UNIT DEPENDENCIES {:#?}",
+        state.unit_dependencies.iter().collect::<BTreeMap<_, _>>()
+    );
 
     Ok(state.unit_dependencies)
 }
